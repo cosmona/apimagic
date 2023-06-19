@@ -53,15 +53,15 @@ const newUser = async (req, res, next) => {
 			`,
 			[email, password, username, RegistrationCode]
 		);
+		res.status(201).send({
+			status: "ok",
+			message: "Usuario creado",
+			data: RegistrationCode,
+		});
 	} catch (error) {
 		console.log(error);
 		next(error);
 	}
-	res.status(201).send({
-		status: "ok",
-		message: "Usuario creado",
-		data: 1,
-	});
 };
 
 module.exports = newUser;

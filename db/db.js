@@ -1,11 +1,12 @@
-const mySql = require("mysql2/promise");
-const { MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE } = process.env;
-console.log("MYSQL_USER", MYSQL_USER);
-
-let pool;
-
 async function getDB() {
+	let pool;
+	const mySql = require("mysql2/promise");
+	const { MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE } =
+		process.env;
+	console.log("MYSQL_USER", MYSQL_USER);
+
 	console.log("user", MYSQL_USER);
+	console.log("pool", pool);
 	if (!pool) {
 		pool = mySql.createPool({
 			connectionLimit: 10,

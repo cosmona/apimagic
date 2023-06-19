@@ -21,6 +21,7 @@
 		"mysql2": "^3.3.3",
 		"prettier": "^2.8.8",
 		"process": "^0.11.10",
+		"react-touch-events": "^3.0.0",
 		"sendgrid": "^5.2.3"
 	}
 }

@@ -1,0 +1,779 @@
+{
+	"info": {
+		"_postman_id": "a3874dfa-08a6-4d57-9236-b5cb9d7facc9",
+		"name": "Magic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6541337"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "newUsers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"tucorreo@gmail.com\",\n    \"password\": \"123456789\",\n    \"username\": \"Inaki\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:{{port}}/users/",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								""
+							]
+						},
+						"description": "//* POST - /users/** - Crear el usuario\n\napp.post(\"/users\", newUsers);"
+					},
+					"response": [
+						{
+							"name": "newUsers Student",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"inaki\",\n    \"email\": \"tucorreo@gmail.com\",\n    \"password\": \"123456789\",\n    \"userRole\": \"Student\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:{{port}}/users/",
+									"host": [
+										"localhost"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "newUsers Expert",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"inaki\",\n    \"email\": \"tucorreo@gmail.com\",\n    \"password\": \"123456789\",\n    \"userRole\": \"Expert\",\n    \"technology\":\"CSS\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:{{port}}/users/",
+									"host": [
+										"localhost"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "validateUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:{{port}}/users/validate/f725532b7c29d0a164b69a0d39b4aaa738d4105f05222e47b2",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								"validate",
+								"f725532b7c29d0a164b69a0d39b4aaa738d4105f05222e47b2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loginUsers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.globals.set(\"token\", jsonData.data.token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{correo}}\",\n    \"password\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:{{port}}/users/login/",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								"login",
+								""
+							]
+						},
+						"description": "//* POST - /users/login** - Login de un usuario y devolverá el TOKEN"
+					},
+					"response": [
+						{
+							"name": "Alumno",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"alumno@gmail.com\",\n    \"password\": \"123456789\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:{{port}}/users/login/",
+									"host": [
+										"localhost"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "223"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"df-x7uDKo3ZuMUTwWdEDrHkMHiMasg\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Aug 2022 09:14:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"ok\",\n    \"message\": \"Usuario logeado\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IlN0dWRlbnQiLCJpYXQiOjE2NjAyMDkyNDIsImV4cCI6MTY2MDI5NTY0Mn0.tMaXPXmg3O9OmCU--C8vKaTnRh-lUR6dVerH7B5B0-A\"\n    }\n}"
+						},
+						{
+							"name": "Profesor",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"profesor@gmail.com\",\n    \"password\": \"123456789\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:{{port}}/users/login/",
+									"host": [
+										"localhost"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "223"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"df-x7uDKo3ZuMUTwWdEDrHkMHiMasg\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Aug 2022 09:14:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"ok\",\n    \"message\": \"Usuario logeado\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IlN0dWRlbnQiLCJpYXQiOjE2NjAyMDkyNDIsImV4cCI6MTY2MDI5NTY0Mn0.tMaXPXmg3O9OmCU--C8vKaTnRh-lUR6dVerH7B5B0-A\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "viewUsers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:{{port}}/users/",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "viewUsers (Todos)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:{{port}}/users/",
+									"host": [
+										"localhost"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "viewUsers (Un usuario)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:{{port}}/users/2",
+									"host": [
+										"localhost"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users",
+										"2"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "editUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"Alumno\",\n    \"email\": \"tunuevocorreo@gmail.com\",\n    \"password\": \"123456789\",\n    \"userRole\": \"Student\",\n    \"technology\":\"CSS\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:{{port}}/users/",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "userDelete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:{{port}}/users/",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Mazos",
+			"item": [
+				{
+					"name": "newMazo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"NameMazo\": \"222sssasssqq2a\",\n   \"Lista\":[\n    {\n        \"id\": \"5f8287b1-5bb6-5f4c-ad17-316a40d5bb0c\",\n        \"name\": \"Ancestor's Chosen\",\n        \"imageUrl\": \"http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130550&type=card\"\n    },\n    {\n        \"id\": \"5f8287b1-5bb6-5f4c-ad17-316a40d5bb0c\",\n        \"name\": \"Ancestor's Chosen\",\n        \"imageUrl\": \"http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130550&type=card\"\n    },\n    {\n        \"id\": \"38513fa0-ea83-5642-8ecd-4f0b3daa6768\",\n        \"name\": \"Abundance\",\n        \"imageUrl\": \"http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130483&type=card\"\n    },\n    {\n        \"id\": \"38513fa0-ea83-5642-8ecd-4f0b3daa6768\",\n        \"name\": \"Abundance\",\n        \"imageUrl\": \"http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130483&type=card\"\n    },\n    {\n        \"id\": \"5f8287b1-5bb6-5f4c-ad17-316a40d5bb0c\",\n        \"name\": \"Ancestor's Chosen\",\n        \"imageUrl\": \"http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130550&type=card\"\n    }\n]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:{{port}}/mazos",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"mazos"
+							]
+						},
+						"description": "//* POST - /users/** - Crear el usuario\n\napp.post(\"/users\", newUsers);"
+					},
+					"response": [
+						{
+							"name": "newUsers Student",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"inaki\",\n    \"email\": \"tucorreo@gmail.com\",\n    \"password\": \"123456789\",\n    \"userRole\": \"Student\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:{{port}}/users/",
+									"host": [
+										"localhost"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "newUsers Expert",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"inaki\",\n    \"email\": \"tucorreo@gmail.com\",\n    \"password\": \"123456789\",\n    \"userRole\": \"Expert\",\n    \"technology\":\"CSS\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:{{port}}/users/",
+									"host": [
+										"localhost"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "deleteMazo",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"NameMazo\": \"222sssasssqq2a\",\n   \"Lista\":[\n    {\n        \"id\": \"5f8287b1-5bb6-5f4c-ad17-316a40d5bb0c\",\n        \"name\": \"Ancestor's Chosen\",\n        \"imageUrl\": \"http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130550&type=card\"\n    },\n    {\n        \"id\": \"5f8287b1-5bb6-5f4c-ad17-316a40d5bb0c\",\n        \"name\": \"Ancestor's Chosen\",\n        \"imageUrl\": \"http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130550&type=card\"\n    },\n    {\n        \"id\": \"38513fa0-ea83-5642-8ecd-4f0b3daa6768\",\n        \"name\": \"Abundance\",\n        \"imageUrl\": \"http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130483&type=card\"\n    },\n    {\n        \"id\": \"38513fa0-ea83-5642-8ecd-4f0b3daa6768\",\n        \"name\": \"Abundance\",\n        \"imageUrl\": \"http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130483&type=card\"\n    },\n    {\n        \"id\": \"5f8287b1-5bb6-5f4c-ad17-316a40d5bb0c\",\n        \"name\": \"Ancestor's Chosen\",\n        \"imageUrl\": \"http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130550&type=card\"\n    }\n]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:{{port}}/deletemazo/39/",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"deletemazo",
+								"39",
+								""
+							]
+						},
+						"description": "//* POST - /users/** - Crear el usuario\n\napp.post(\"/users\", newUsers);"
+					},
+					"response": [
+						{
+							"name": "newUsers Student",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"inaki\",\n    \"email\": \"tucorreo@gmail.com\",\n    \"password\": \"123456789\",\n    \"userRole\": \"Student\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:{{port}}/users/",
+									"host": [
+										"localhost"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "newUsers Expert",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"inaki\",\n    \"email\": \"tucorreo@gmail.com\",\n    \"password\": \"123456789\",\n    \"userRole\": \"Expert\",\n    \"technology\":\"CSS\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:{{port}}/users/",
+									"host": [
+										"localhost"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "getMazo",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"inakipf@gmail.com\",\n    \"password\": \"123456789\",\n    \"User\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:{{port}}/getMazos",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"getMazos"
+							]
+						},
+						"description": "//* POST - /users/** - Crear el usuario\n\napp.post(\"/users\", newUsers);"
+					},
+					"response": [
+						{
+							"name": "newUsers Student",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"inaki\",\n    \"email\": \"tucorreo@gmail.com\",\n    \"password\": \"123456789\",\n    \"userRole\": \"Student\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:{{port}}/users/",
+									"host": [
+										"localhost"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "newUsers Expert",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"inaki\",\n    \"email\": \"tucorreo@gmail.com\",\n    \"password\": \"123456789\",\n    \"userRole\": \"Expert\",\n    \"technology\":\"CSS\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:{{port}}/users/",
+									"host": [
+										"localhost"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "https://api.magicthegathering.io/v1/cards",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.magicthegathering.io/v1/cards",
+					"protocol": "https",
+					"host": [
+						"api",
+						"magicthegathering",
+						"io"
+					],
+					"path": [
+						"v1",
+						"cards"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
